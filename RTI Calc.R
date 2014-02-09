@@ -12,8 +12,13 @@ unifCDF <- dTimesSeconds/T
 
 getRTI <- function(day) {
   
-  tempDay <- day[!is.na(day)]
+  
+  
   tempDaySum <- sum(tempDay)
+  if(is.na(tempDaySum)) {
+    tempDay <- day[!is.na(day)]
+    tempDaySum <- sum(tempDay)
+  }
   if(tempDaySum == 0) {
     return(RTI.KS <- 0)
   }

@@ -15,7 +15,7 @@ if( Sys.getenv("username")=="keith" ) {
 } else {
   indir <- "C:/Project V2/Data"
   outdir <- "C:/Project V2/Returned"
-  srcdir <- "C:/Project V2/R Scripts"
+  srcdir <- "C:/ThesisProject"
   tckdir <- "C:/Project V2/Ticks/Ticks.csv"
   outdir.RTI <- paste( outdir, "/RTI Plots", sep="" )
 }
@@ -50,6 +50,7 @@ time1 <- Sys.time()
         name <- substring(file, 10, nchar(file) - 4)
         name <- gsub("-", "", name)
         mergerList[name] <- list(getMergerObject(file, ticks))
+        print(name)
 		    counter <- counter + 1
       }
 #--- Stop Time 1 ---#
@@ -61,7 +62,7 @@ print(paste("It took", as.character(as.numeric(endtime1 - time1)), "seconds to c
 #--- Start Time 2 ---#
 time2 <- Sys.time()
       #--- Run Analysis ---#
-      graphs <- sapply(mergerList, graphRTI)
+      #graphs <- sapply(mergerList, graphRTI)
 #--- Stop Time 2 ---#
 endtime2 <- Sys.time()
 
